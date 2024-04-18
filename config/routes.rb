@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   # viewers can see all and one car
   get "/cars" => "cars#index"
   get "/cars/:id" => "cars#show"
+  # booking a car
+  post "/bookings" => "bookings#create"
+  # user seeing their bookings
+  get "/bookings" => "bookings#index"
+  get "/bookings/:id" => "bookings#show"
   
 
 end

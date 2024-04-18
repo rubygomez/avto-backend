@@ -7,4 +7,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       assert_response 201
     end
   end
+
+  
 end
