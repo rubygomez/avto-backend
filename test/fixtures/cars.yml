@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  model: MyString
+  make: MyString
+  year: 1
+  color: MyString
+  rate: 1
+  seats: MyString
+  transmission: MyString
+
+two:
+  user_id: 1
+  model: MyString
+  make: MyString
+  year: 1
+  color: MyString
+  rate: 1
+  seats: MyString
+  transmission: MyString
