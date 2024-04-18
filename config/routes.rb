@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/users" => "users#index"
   # log in
   post "/sessions" => "sessions#create"
-
+  # viewers can see all and one car
   get "/cars" => "cars#index"
   get "/cars/:id" => "cars#show"
   
