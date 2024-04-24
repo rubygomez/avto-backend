@@ -3,7 +3,7 @@ require "test_helper"
 class BookingsControllerTest < ActionDispatch::IntegrationTest
   test "create" do
     assert_difference "Booking.count", 1 do
-      post "/bookings.json", params: { user_id: 1, car_id: 1, book_start: "2002-02-02", book_end:"2002-01-01", total_price: 1.0 }
+      post "/bookings.json", params: { user_id: 2, car_id: 3, book_start: "2024-05-05", book_end:"2024-06-06", total_price: 1830.65 }
       assert_response 200
     end
   end

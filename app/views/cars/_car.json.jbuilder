@@ -7,3 +7,4 @@ json.color car.color
 json.rate car.rate
 json.seats car.seats
 json.transmission car.transmission
+json.image_url car.image_url

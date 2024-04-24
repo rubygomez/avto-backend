@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # sign up
   post "/users" => "users#create"
-  get "/users" => "users#index"
+  get "/users" => "users#index" # user shouldnt be able to see all users
   # log in
   post "/sessions" => "sessions#create"
   # viewers can see all and one car

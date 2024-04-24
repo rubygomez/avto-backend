@@ -14,6 +14,6 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "user_id", "make", "model", "year", "color", "rate", "seats", "transmission"], data.keys
+    assert_equal ["id", "user_id", "make", "model", "year", "color", "rate", "seats", "transmission", "image_url"], data.keys
   end
 end
