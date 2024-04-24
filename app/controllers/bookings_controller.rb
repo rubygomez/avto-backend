@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
     def create
         booking = Booking.create(
-        user_id: params[:user_id],
+        user_id: current_user.id,
         car_id: params[:car_id],
         book_start: params[:book_start],
         book_end: params[:book_end],
+        duration: params[:duration],
         total_price: params[:total_price],
         )
         if booking.save
