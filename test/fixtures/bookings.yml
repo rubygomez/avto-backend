@@ -5,11 +5,11 @@ one:
   car_id: 1
   book_start: 2024-04-18
   book_end: 2024-04-18
-  total_price: 1.5
+  # total_price: 1.5
 
 two:
   user_id: 1
   car_id: 1
   book_start: 2024-04-18
   book_end: 2024-04-18
-  total_price: 1.5
+  # total_price: 1.5

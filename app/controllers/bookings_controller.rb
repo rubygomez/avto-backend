@@ -5,8 +5,8 @@ class BookingsController < ApplicationController
         car_id: params[:car_id],
         book_start: params[:book_start],
         book_end: params[:book_end],
-        duration: params[:duration],
-        total_price: params[:total_price],
+        # duration: params[:duration],
+        # total_price: params[:total_price],
         )
         if booking.save
             render json: { message: "Booked!" }, status: :created
