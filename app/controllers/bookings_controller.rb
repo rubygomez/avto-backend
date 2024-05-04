@@ -14,13 +14,13 @@ class BookingsController < ApplicationController
     end
 
     def index
-        @bookings = Booking.where(:user_id => current_user.id)
-        render :index
+        @bookings = Booking.includes(:car).where(:user_id => current_user.id)
+        render json: @bookings, include: [:car]
     end
 
     def show
-        @booking = Booking.find_by(id: params[:id])
-        render :show
+        @booking = Booking.includes(:car).find_by(id: params[:id])
+        render json: @booking, include: [:car]
     end
 
     def destroy
