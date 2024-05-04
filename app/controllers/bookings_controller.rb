@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
     def create
-        booking = Booking.create(
+        @booking = Booking.create(
         user_id: current_user.id,
         car_id: params[:car_id],
         book_start: params[:book_start],
@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
         # duration: params[:duration],
         # total_price: params[:total_price],
         )
-        if booking.save
+        if @booking.save
             render json: { message: "Booked!" }, status: :created
         else
             render json: { errors: booking.errors.full_messages }, status: :bad_request
@@ -23,5 +23,11 @@ class BookingsController < ApplicationController
     def show
         @booking = Booking.find_by(id: params[:id])
         render :show
+    end
+
+    def destroy
+        @booking = Booking.find_by(id: params[:id])
+        @booking.destroy
+        render json: { message: "Successfully removed"}
     end
 end

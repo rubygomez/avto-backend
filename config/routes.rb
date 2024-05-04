@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   # user seeing their bookings
   get "/bookings" => "bookings#index"
   get "/bookings/:id" => "bookings#show"
+  # deleting a booking
+  delete "/bookings/:id" => "bookings#destroy"
   
 
 end
