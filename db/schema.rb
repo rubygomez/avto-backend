@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_04_005629) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_04_050056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_04_005629) do
     t.integer "car_id"
     t.date "book_start"
     t.date "book_end"
-    t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration"
