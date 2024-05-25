@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
     def current_user
+        return @current_user if @current_user
+
         auth_headers = request.headers["Authorization"]
         if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
             token = auth_headers[/(?<=\A(Bearer ))\S+\z/]
@@ -12,16 +14,14 @@ class ApplicationController < ActionController::Base
                     true,
                     { algorithm: "HS256" }
                 )
-                User.find_by(id: decoded_token[0]["user_id"])
-            rescue JWT::ExpiredSignature
+                @current_user = User.find_by(id: decoded_token[0]["user_id"])
+            rescue JWT::ExpiredSignature, JWT::DecodeError
                 nil
             end
         end
     end
 
     def authenticate_user
-        unless current_user
-            render json: {}, status: :unauthorized
-        end
+        render json: {error: "unauthorized accesss"}, status: :unauthorized unless current_user
     end
 end

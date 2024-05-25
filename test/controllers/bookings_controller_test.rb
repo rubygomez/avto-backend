@@ -21,6 +21,6 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "user_id", "car_id", "book_start", "book_end", ], data.keys #"total_price"
+    assert_equal ["id", "user_id", "car_id", "book_start", "book_end", "created_at", "updated_at"], data.keys #"total_price"
   end
 end

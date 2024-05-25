@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+    before_action :authenticate_user!
+
     def create
         @booking = Booking.create(
         user_id: current_user.id,
@@ -20,12 +22,20 @@ class BookingsController < ApplicationController
 
     def show
         @booking = Booking.includes(:car).find_by(id: params[:id])
-        render json: @booking, include: [:car]
+        if @booking && @booking.user_id == current_user.id
+            render json: @booking, include: [:car]
+        else
+            render json: { error: "booking not found or unauthorized" }, status: :not_found
+        end
     end
 
     def destroy
         @booking = Booking.find_by(id: params[:id])
-        @booking.destroy
-        render json: { message: "Successfully removed"}
+        if @booking && @booking.user_id == current_user.id
+            @booking.destroy
+            render json: { message: "Successfully removed"}
+        else
+            render json: { error: "booking not found or unauthorized" }, status: :not_found
+        end
     end
 end
