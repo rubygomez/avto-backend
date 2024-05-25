@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-    before_action :authenticate_user!
 
     def create
         @booking = Booking.create(
@@ -18,6 +17,9 @@ class BookingsController < ApplicationController
     def index
         @bookings = Booking.includes(:car).where(:user_id => current_user.id)
         render json: @bookings, include: [:car]
+    rescue ActiveRecord::RecordNotFound => e
+        Rails.logger.error "ActiveRecord Error: #{e.message}"
+        render json: { error: "Bookings not found" }, status: :not_found
     end
 
     def show
